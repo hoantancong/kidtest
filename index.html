@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Present Perfect Quiz</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 10px;
+      text-align: center;
+    }
+    .hidden {
+      display: none;
+    }
+    .question-box {
+      margin-top: 20px;
+    }
+    .question {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .answer-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .correct {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .incorrect {
+      background-color: #f44336;
+      color: white;
+    }
+    .result-box {
+      margin-top: 30px;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #ddd;
+      height: 30px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #4CAF50;
+      width: 0;
+      line-height: 30px;
+      color: white;
+      font-weight: bold;
+    }
+    .timer {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    #question-count {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #question-progress-container {
+      margin-top: 10px;
+      background-color: #eee;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #question-progress-fill {
+      height: 100%;
+      background-color: #2196F3;
+      width: 0;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    .btn {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #1976D2;
+    }
+    .review-list {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .review-list li {
+      margin-bottom: 10px;
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Present Perfect Quiz</h1>
+  <div id="start-screen">
+    <button class="btn" onclick="initQuiz()">Start Quiz</button>
+  </div>
+
+  <div id="quiz-container" class="hidden">
+    <div class="timer" id="timer">Time left: 5:00</div>
+    <div id="question-count"></div>
+    <div id="question-progress-container">
+      <div id="question-progress-fill"></div>
+    </div>
+    <div class="question-box">
+      <div class="question" id="question"></div>
+      <div id="answers"></div>
+    </div>
+  </div>
+
+  <div id="result-screen" class="hidden">
+    <h2>Quiz Result</h2>
+    <p id="score"></p>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div id="review"></div>
+    <button class="btn" onclick="initQuiz()">Play Again</button>
+  </div>
+
+  <script>
+    const allQuestions = [
+       { q: "She has ___ her homework.", options: ["did", "done", "do", "doing"], answer: "done" },
+  { q: "I have ___ lunch already.", options: ["eat", "ate", "eaten", "eating"], answer: "eaten" },
+  { q: "They have ___ the house.", options: ["clean", "cleaned", "cleaning", "cleans"], answer: "cleaned" },
+  { q: "He has ___ his homework.", options: ["do", "does", "did", "done"], answer: "done" },
+  { q: "We have ___ a lot today.", options: ["learn", "learned", "learning", "learns"], answer: "learned" },
+  { q: "She has ___ to the market.", options: ["go", "went", "gone", "going"], answer: "gone" },
+  { q: "They have ___ breakfast.", options: ["eat", "eaten", "ate", "eating"], answer: "eaten" },
+  { q: "I have ___ my keys!", options: ["lose", "lost", "losing", "loses"], answer: "lost" },
+  { q: "He has ___ a new bike.", options: ["buy", "buys", "bought", "buying"], answer: "bought" },
+  { q: "Have you ever ___ a tiger?", options: ["see", "saw", "seen", "sees"], answer: "seen" },
+  { q: "She hasn't ___ her lunch yet.", options: ["finish", "finished", "finishing", "finishes"], answer: "finished" },
+  { q: "I have never ___ to Japan.", options: ["be", "been", "was", "being"], answer: "been" },
+  { q: "Have they ___ the movie yet?", options: ["watch", "watched", "watching", "watches"], answer: "watched" },
+  { q: "We haven't ___ our rooms.", options: ["cleaned", "clean", "cleans", "cleaning"], answer: "cleaned" },
+  { q: "They have ___ a beautiful song.", options: ["sang", "sung", "sing", "singing"], answer: "sung" },
+  { q: "He has just ___ home.", options: ["come", "came", "comes", "coming"], answer: "come" },
+  { q: "I have ___ in this school for 3 years.", options: ["study", "studied", "studying", "studies"], answer: "studied" },
+  { q: "Have you ___ your bag?", options: ["pack", "packed", "packing", "packs"], answer: "packed" },
+  { q: "They haven't ___ the book.", options: ["read", "reads", "reading", "readed"], answer: "read" },
+  { q: "She has ___ a cake.", options: ["bake", "baked", "baking", "bakes"], answer: "baked" },
+  { q: "Have we ___ all the apples?", options: ["eat", "eaten", "ate", "eating"], answer: "eaten" },
+  { q: "You have ___ the puzzle!", options: ["solve", "solved", "solving", "solves"], answer: "solved" },
+  { q: "They have ___ the picture.", options: ["draw", "drew", "drawn", "drawing"], answer: "drawn" },
+  { q: "Has he ever ___ a fish?", options: ["catch", "caught", "catches", "catching"], answer: "caught" },
+  { q: "I have already ___ this book.", options: ["read", "reads", "reading", "readed"], answer: "read" },
+  { q: "She has ___ the floor.", options: ["sweep", "swept", "sweeping", "sweeps"], answer: "swept" },
+  { q: "He hasn't ___ to school today.", options: ["go", "gone", "went", "going"], answer: "gone" },
+  { q: "We have ___ up the toys.", options: ["pick", "picked", "picking", "picks"], answer: "picked" },
+  { q: "Has she ___ the present yet?", options: ["open", "opened", "opens", "opening"], answer: "opened" },
+  { q: "Have you ever ___ on a plane?", options: ["fly", "flew", "flown", "flying"], answer: "flown" },
+  { q: "They have ___ a snowman.", options: ["build", "built", "building", "builds"], answer: "built" },
+  { q: "I have ___ my homework since 4 PM.", options: ["do", "done", "doing", "did"], answer: "done" },
+  { q: "She has ___ here since last year.", options: ["live", "lived", "living", "lives"], answer: "lived" },
+  { q: "Have you ever ___ an elephant?", options: ["ride", "rode", "ridden", "riding"], answer: "ridden" },
+  { q: "We have ___ in this room for 2 hours.", options: ["be", "been", "was", "being"], answer: "been" },
+  { q: "He has ___ the wall.", options: ["paint", "painted", "painting", "paints"], answer: "painted" },
+  { q: "I have ___ my hands.", options: ["wash", "washed", "washing", "washes"], answer: "washed" },
+  { q: "They have ___ their toys.", options: ["break", "broke", "broken", "breaking"], answer: "broken" },
+  { q: "She has ___ already.", options: ["leave", "left", "leaving", "leaves"], answer: "left" },
+  { q: "He has never ___ soccer.", options: ["play", "played", "plays", "playing"], answer: "played" },
+  { q: "We haven't ___ him yet.", options: ["meet", "met", "meeting", "meets"], answer: "met" },
+  { q: "Has your mom ___ dinner?", options: ["cook", "cooked", "cooking", "cooks"], answer: "cooked" },
+  { q: "She has ___ the baby.", options: ["feed", "fed", "feeding", "feeds"], answer: "fed" },
+  { q: "I have ___ a nice story.", options: ["write", "wrote", "written", "writing"], answer: "written" },
+  { q: "They have ___ up late.", options: ["stay", "stayed", "staying", "stays"], answer: "stayed" },
+  { q: "He has ___ his shoes.", options: ["tie", "tied", "tying", "ties"], answer: "tied" },
+  { q: "Have we ___ the game?", options: ["start", "started", "starting", "starts"], answer: "started" },
+  { q: "She has ___ to the song.", options: ["listen", "listened", "listening", "listens"], answer: "listened" },
+  { q: "We have ___ for the bus.", options: ["wait", "waited", "waiting", "waits"], answer: "waited" },
+  { q: "I have ___ this movie before.", options: ["see", "saw", "seen", "sees"], answer: "seen" },
+  { q: "He has ___ his glasses.", options: ["find", "found", "finding", "finds"], answer: "found" }
+    ];
+
+    const totalQuestions = 20;
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let quizQuestions = [];
+    let timer;
+    let timeLeft = 300;
+    let wrongAnswers = [];
+
+    function initQuiz() {
+      startQuiz();
+    }
+
+    function startQuiz() {
+      document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("quiz-container").classList.remove("hidden");
+      document.getElementById("result-screen").classList.add("hidden");
+      document.getElementById("review").innerHTML = "";
+
+      quizQuestions = shuffleArray(allQuestions).slice(0, totalQuestions);
+      currentQuestionIndex = 0;
+      score = 0;
+      timeLeft = 300;
+      wrongAnswers = [];
+      startTimer();
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const questionData = quizQuestions[currentQuestionIndex];
+      if (!questionData) return;
+
+      const questionEl = document.getElementById("question");
+      const answersEl = document.getElementById("answers");
+      const questionCountEl = document.getElementById("question-count");
+      const progressFill = document.getElementById("question-progress-fill");
+
+      questionCountEl.textContent = `Question ${currentQuestionIndex + 1} / ${totalQuestions}`;
+      progressFill.style.width = `${((currentQuestionIndex) / totalQuestions) * 100}%`;
+      progressFill.textContent = `${currentQuestionIndex} / ${totalQuestions}`;
+
+      questionEl.textContent = questionData.q;
+      answersEl.innerHTML = "";
+
+      questionData.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.className = "answer-button";
+        btn.textContent = option;
+        btn.onclick = () => handleAnswer(btn, option === questionData.answer, questionData);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(button, isCorrect, questionData) {
+      const buttons = document.querySelectorAll(".answer-button");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === questionData.answer) {
+          btn.classList.add("correct");
+        } else if (btn === button && !isCorrect) {
+          btn.classList.add("incorrect");
+        }
+      });
+
+      if (isCorrect) {
+        score++;
+      } else {
+        wrongAnswers.push({ question: questionData.q, correct: questionData.answer });
+      }
+
+      setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizQuestions.length && timeLeft > 0) {
+          showQuestion();
+        } else {
+          endQuiz();
+        }
+      }, 3000);
+    }
+
+    function endQuiz() {
+      clearInterval(timer);
+      document.getElementById("quiz-container").classList.add("hidden");
+      document.getElementById("result-screen").classList.remove("hidden");
+
+      const percent = Math.round((score / quizQuestions.length) * 100);
+      document.getElementById("score").textContent = `You scored ${score} out of ${quizQuestions.length}`;
+      const fill = document.getElementById("progress-fill");
+      fill.style.width = percent + "%";
+      fill.textContent = percent + "%";
+
+      if (wrongAnswers.length > 0) {
+        const reviewDiv = document.getElementById("review");
+        const list = document.createElement("ul");
+        list.className = "review-list";
+        wrongAnswers.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = `Q: ${item.question} → Correct Answer: ${item.correct}`;
+          list.appendChild(li);
+        });
+        reviewDiv.innerHTML = `<h3>Review Incorrect Answers</h3>`;
+        reviewDiv.appendChild(list);
+      }
+    }
+
+    function shuffleArray(array) {
+      return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function startTimer() {
+      const timerEl = document.getElementById("timer");
+      timer = setInterval(() => {
+        timeLeft--;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        timerEl.textContent = `Time left: ${min}:${sec.toString().padStart(2, '0')}`;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          endQuiz();
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
