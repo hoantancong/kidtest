@@ -1,0 +1,432 @@
+[
+  {
+    "q": "___ are playing in the yard.",
+    "options": [
+      "Them",
+      "They",
+      "He",
+      "His"
+    ],
+    "answer": "They"
+  },
+  {
+    "q": "I saw ___ at the park.",
+    "options": [
+      "they",
+      "them",
+      "he",
+      "we"
+    ],
+    "answer": "them"
+  },
+  {
+    "q": "Is this ___ book?",
+    "options": [
+      "he",
+      "his",
+      "him",
+      "her"
+    ],
+    "answer": "his"
+  },
+  {
+    "q": "___ gave me a gift.",
+    "options": [
+      "She",
+      "Her",
+      "Hers",
+      "They"
+    ],
+    "answer": "She"
+  },
+  {
+    "q": "We invited ___ to our house.",
+    "options": [
+      "they",
+      "them",
+      "their",
+      "theirs"
+    ],
+    "answer": "them"
+  },
+  {
+    "q": "He likes ___ dog very much.",
+    "options": [
+      "his",
+      "him",
+      "he",
+      "hers"
+    ],
+    "answer": "his"
+  },
+  {
+    "q": "Can you help ___?",
+    "options": [
+      "I",
+      "me",
+      "my",
+      "mine"
+    ],
+    "answer": "me"
+  },
+  {
+    "q": "There are ___ apples in the basket.",
+    "options": [
+      "a lot of",
+      "much",
+      "any",
+      "an"
+    ],
+    "answer": "a lot of"
+  },
+  {
+    "q": "How ___ books do you have?",
+    "options": [
+      "many",
+      "much",
+      "lot",
+      "a"
+    ],
+    "answer": "many"
+  },
+  {
+    "q": "___ the students are in the classroom.",
+    "options": [
+      "All",
+      "Some",
+      "Much",
+      "Any"
+    ],
+    "answer": "All"
+  },
+  {
+    "q": "I saw ___ birds in the tree.",
+    "options": [
+      "many",
+      "all",
+      "any",
+      "a"
+    ],
+    "answer": "many"
+  },
+  {
+    "q": "___ of the cookies are gone.",
+    "options": [
+      "All",
+      "Some",
+      "Many",
+      "Any"
+    ],
+    "answer": "All"
+  },
+  {
+    "q": "He has ___ toys at home.",
+    "options": [
+      "a lot of",
+      "many of",
+      "much of",
+      "any of"
+    ],
+    "answer": "a lot of"
+  },
+  {
+    "q": "___ of my friends like soccer.",
+    "options": [
+      "Many",
+      "All",
+      "Some",
+      "Much"
+    ],
+    "answer": "Many"
+  },
+  {
+    "q": "Do you have ___ pencils?",
+    "options": [
+      "any",
+      "some",
+      "a",
+      "many"
+    ],
+    "answer": "any"
+  },
+  {
+    "q": "I need ___ apple.",
+    "options": [
+      "a",
+      "an",
+      "any",
+      "some"
+    ],
+    "answer": "an"
+  },
+  {
+    "q": "We bought ___ oranges.",
+    "options": [
+      "some",
+      "any",
+      "a",
+      "an"
+    ],
+    "answer": "some"
+  },
+  {
+    "q": "There isn’t ___ water in the glass.",
+    "options": [
+      "any",
+      "some",
+      "a",
+      "many"
+    ],
+    "answer": "any"
+  },
+  {
+    "q": "She wants ___ sandwich.",
+    "options": [
+      "a",
+      "some",
+      "any",
+      "much"
+    ],
+    "answer": "a"
+  },
+  {
+    "q": "Would you like ___ juice?",
+    "options": [
+      "some",
+      "a",
+      "many",
+      "an"
+    ],
+    "answer": "some"
+  },
+  {
+    "q": "I don’t have ___ friends here.",
+    "options": [
+      "any",
+      "some",
+      "many",
+      "a"
+    ],
+    "answer": "any"
+  },
+  {
+    "q": "She has a ___ dress.",
+    "options": [
+      "beautiful red new",
+      "red beautiful new",
+      "new red beautiful",
+      "beautiful new red"
+    ],
+    "answer": "beautiful new red"
+  },
+  {
+    "q": "He bought two ___ hats.",
+    "options": [
+      "big black wool",
+      "wool black big",
+      "black big wool",
+      "big wool black"
+    ],
+    "answer": "big black wool"
+  },
+  {
+    "q": "I see a ___ car.",
+    "options": [
+      "small old blue",
+      "blue old small",
+      "old small blue",
+      "blue small old"
+    ],
+    "answer": "small old blue"
+  },
+  {
+    "q": "They have a ___ dog.",
+    "options": [
+      "big white fluffy",
+      "white fluffy big",
+      "fluffy white big",
+      "fluffy big white"
+    ],
+    "answer": "big white fluffy"
+  },
+  {
+    "q": "She wore a ___ hat.",
+    "options": [
+      "funny green round",
+      "round green funny",
+      "green funny round",
+      "funny round green"
+    ],
+    "answer": "funny green round"
+  },
+  {
+    "q": "I ___ my homework already.",
+    "options": [
+      "have done",
+      "did",
+      "do",
+      "does"
+    ],
+    "answer": "have done"
+  },
+  {
+    "q": "He ___ to the park yesterday.",
+    "options": [
+      "went",
+      "goes",
+      "has gone",
+      "go"
+    ],
+    "answer": "went"
+  },
+  {
+    "q": "They ___ soccer every weekend.",
+    "options": [
+      "play",
+      "played",
+      "will play",
+      "playing"
+    ],
+    "answer": "play"
+  },
+  {
+    "q": "We ___ visit grandma tomorrow.",
+    "options": [
+      "will",
+      "are",
+      "have",
+      "did"
+    ],
+    "answer": "will"
+  },
+  {
+    "q": "She ___ finished her dinner.",
+    "options": [
+      "has",
+      "have",
+      "did",
+      "does"
+    ],
+    "answer": "has"
+  },
+  {
+    "q": "I ___ a new toy last week.",
+    "options": [
+      "bought",
+      "buy",
+      "have bought",
+      "buyed"
+    ],
+    "answer": "bought"
+  },
+  {
+    "q": "He ___ study tomorrow.",
+    "options": [
+      "will",
+      "has",
+      "had",
+      "did"
+    ],
+    "answer": "will"
+  },
+  {
+    "q": "I ___ swim when I was five.",
+    "options": [
+      "could",
+      "can",
+      "couldn’t",
+      "can't"
+    ],
+    "answer": "could"
+  },
+  {
+    "q": "She ___ open the box.",
+    "options": [
+      "couldn’t",
+      "can",
+      "could",
+      "will"
+    ],
+    "answer": "couldn’t"
+  },
+  {
+    "q": "___ you help me, please?",
+    "options": [
+      "Could",
+      "Can",
+      "Will",
+      "Should"
+    ],
+    "answer": "Could"
+  },
+  {
+    "q": "He ___ read last year.",
+    "options": [
+      "could",
+      "can",
+      "couldn’t",
+      "can’t"
+    ],
+    "answer": "could"
+  },
+  {
+    "q": "We ___ play outside because it was raining.",
+    "options": [
+      "couldn’t",
+      "could",
+      "can",
+      "should"
+    ],
+    "answer": "couldn’t"
+  },
+  {
+    "q": "A cheetah runs ___ a car.",
+    "options": [
+      "as fast as",
+      "faster than",
+      "as slow as",
+      "slower than"
+    ],
+    "answer": "as fast as"
+  },
+  {
+    "q": "He is ___ his brother.",
+    "options": [
+      "as tall as",
+      "taller than",
+      "the tallest",
+      "tallest as"
+    ],
+    "answer": "as tall as"
+  },
+  {
+    "q": "My cat is not ___ your cat.",
+    "options": [
+      "as fast as",
+      "fast than",
+      "faster than",
+      "as faster as"
+    ],
+    "answer": "as fast as"
+  },
+  {
+    "q": "She can sing ___ a bird.",
+    "options": [
+      "as sweetly as",
+      "sweeter than",
+      "more sweet",
+      "as sweet than"
+    ],
+    "answer": "as sweetly as"
+  },
+  {
+    "q": "This puzzle is ___ the last one.",
+    "options": [
+      "as hard as",
+      "harder than",
+      "easy as",
+      "easier than"
+    ],
+    "answer": "as hard as"
+  }
+]
